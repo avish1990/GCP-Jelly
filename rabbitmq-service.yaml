@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: rabbitmq
+  name: rabbitmq-service
+spec:
+  ports:
+  - name: queue  
+    port: 5672
+  - name: admin
+    port: 15672
+  type: NodePort
+  selector:
+    app: taskQueue
+    component: rabbitmq
