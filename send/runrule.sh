@@ -12,6 +12,6 @@ sleep 10
 JOB=`wc -w names.txt | awk '{print$1}'`
 
 # Trigger Jenkins JOBS - Batch Jobs to consume messages
-curl -v -X POST http://35.200.195.163:9090/job/kube-job-trigger/build --data token=batchjob --data-urlencode json='{"parameter": [{"name":"JOB", "value":'$JOB'}]}'
+curl -v -X POST http://<JenkinsURL>/job/<JOBNAme>/build --data token=batchjob --data-urlencode json='{"parameter": [{"name":"JOB", "value":'$JOB'}]}'
 
 sleep 100d
